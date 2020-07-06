@@ -1,0 +1,21 @@
+{
+  "name": "SiteDeCompras",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./bin/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express-generator": "^4.16.1",
+    "express-handlebars": "^3.1.0",
+    "jsonwebtoken": "^8.5.1",
+    "mysql2": "^2.0.0",
+    "nodemon": "^1.19.3",
+    "sequelize": "^5.21.2"
+  }
+}
