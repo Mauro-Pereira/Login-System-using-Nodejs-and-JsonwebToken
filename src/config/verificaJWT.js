@@ -4,11 +4,8 @@ const auth = require('../config/auth.json')
 
 module.exports = function verifyJWT(req, res, next){
   
-    console.log('antes do token')
+    
     const tokenAuth =  req.headers.authorization
-    console.log('depois do token')
-    console.log(tokenAuth)
-  
     if (!tokenAuth) 
     return res.status(401).send({ auth: false, message: 'No token provided.' });
     
