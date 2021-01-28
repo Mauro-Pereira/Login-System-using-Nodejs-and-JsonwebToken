@@ -1,13 +1,20 @@
+//preciso baixar o módulo
+//import {uuid} from 'uuidv4';
 
 export class User {
+    private readonly id: string;
     private name: string;
     private email: string;
     private password: string;
 
-    constructor(name:string,email:string,password:string){
+    constructor(name:string,email:string,password:string, id?:string){
         this.name = name,
         this.email = email,
         this.password = password
+        
+        if(!id){
+           // this.id = uuid();
+        }
     }
 
     setName(name:string): void{
@@ -21,6 +28,10 @@ export class User {
 
     setPassword(password: string):void{
         this.password = password;
+    }
+
+    getId():string{
+        return this.id;
     }
 
     getName(): string{
