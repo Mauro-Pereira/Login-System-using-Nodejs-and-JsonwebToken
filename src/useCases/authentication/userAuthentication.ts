@@ -2,7 +2,7 @@ import { IAuthentication } from "../../providers/authentication/IAuthentication"
 import { IUseRepository } from "../../repositories/IUseRepository";
 import { IUserAuthentication } from "./UserAuthenticationDTO";
 
-export class Authetication{
+export class Authentication{
     constructor(
         private userRepository: IUseRepository,
         private authentication: IAuthentication
@@ -18,6 +18,9 @@ export class Authetication{
         if(!invalidPassword){
             throw Error("Invalid Password");
         }
+
+        await this.authentication.authentication(data.email,data.password);
+
     }
 
 
