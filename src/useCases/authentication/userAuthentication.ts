@@ -19,7 +19,7 @@ export class Authentication{
             throw Error("Invalid Password");
         }
 
-        await this.authentication.authentication(data.email,data.password);
+        await this.authentication.userAuthentication(data.email,data.password);
 
     }
 
