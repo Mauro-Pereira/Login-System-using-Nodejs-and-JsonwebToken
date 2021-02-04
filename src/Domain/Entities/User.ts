@@ -1,5 +1,4 @@
-//preciso baixar o módulo
-//import {uuid} from 'uuidv4';
+import {uuid} from 'uuidv4';
 
 export class User {
     private readonly id: string;
@@ -13,7 +12,7 @@ export class User {
         this.password = password
         
         if(!id){
-           // this.id = uuid();
+           this.id = uuid();
         }
     }
 
