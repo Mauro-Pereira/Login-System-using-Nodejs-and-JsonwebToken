@@ -12,7 +12,6 @@ export class AuthenticationController{
             const {email,password} = request.body;
 
             try{
-
                 await this.userAuthentication.execute({email:email,password:password});
                 return response.status(200).send();
 
