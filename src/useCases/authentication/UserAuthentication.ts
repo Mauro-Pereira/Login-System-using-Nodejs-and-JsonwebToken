@@ -2,7 +2,7 @@ import { IAuthentication } from "../../providers/authentication/IAuthentication"
 import { IUseRepository } from "../../repositories/IUseRepository";
 import { IUserAuthenticationDTO } from "./IUserAuthenticationDTO";
 
-export class Authentication{
+export class UserAuthentication{
     constructor(
         private userRepository: IUseRepository,
         private authentication: IAuthentication

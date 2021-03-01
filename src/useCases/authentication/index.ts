@@ -1,13 +1,13 @@
 import { AuthenticationImplentation } from "../../providers/authentication/AuthenticationImplementation";
 import { DataBaseImplementation } from "../../repositories/implementation/DataBaseImplementation";
-import { Authentication } from "./Authentication";
-import { AuthenticationController } from "./AuthenticationController";
+import { UserAuthentication } from "./UserAuthentication";
+import { UserAuthenticationController } from "./UserAuthenticationController";
 
 const userRepositoryImplementation = new DataBaseImplementation();
 const authenticationImplementation = new AuthenticationImplentation();
 
-const userAuthentication = new Authentication(userRepositoryImplementation,authenticationImplementation);
+const Authentication = new UserAuthentication(userRepositoryImplementation,authenticationImplementation);
 
-const userAuthenticationController = new AuthenticationController(userAuthentication);
+const AuthenticationController = new UserAuthenticationController(Authentication);
 
-export {userAuthenticationController, userAuthentication};
+export {AuthenticationController, Authentication};

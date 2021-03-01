@@ -1,11 +1,11 @@
 import {Request,Response} from 'express';
-import {Authentication} from './Authentication';
+import {UserAuthentication} from './UserAuthentication';
 
 
-export class AuthenticationController{
+export class UserAuthenticationController{
     
     constructor(
-        private userAuthentication: Authentication
+        private userAuthentication: UserAuthentication
     ){}
     
     async handle(request: Request, response:Response): Promise<Response>{
