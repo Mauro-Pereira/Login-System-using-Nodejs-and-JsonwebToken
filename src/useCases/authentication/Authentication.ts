@@ -1,6 +1,6 @@
 import { IAuthentication } from "../../providers/authentication/IAuthentication";
 import { IUseRepository } from "../../repositories/IUseRepository";
-import { IUserAuthentication } from "./UserAuthenticationDTO";
+import { IUserAuthenticationDTO } from "./IUserAuthenticationDTO";
 
 export class Authentication{
     constructor(
@@ -8,7 +8,7 @@ export class Authentication{
         private authentication: IAuthentication
     ){}
 
-    async execute(data: IUserAuthentication){
+    async execute(data: IUserAuthenticationDTO){
         const userAlreadyExists = await this.userRepository.findByEmail(data.email);
         if(!userAlreadyExists){
             throw Error("User not Exist");

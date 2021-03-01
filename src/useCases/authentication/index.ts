@@ -1,7 +1,7 @@
 import { AuthenticationImplentation } from "../../providers/authentication/AuthenticationImplementation";
 import { DataBaseImplementation } from "../../repositories/implementation/DataBaseImplementation";
-import { Authentication } from "./userAuthentication";
-import { AuthenticationController } from "./UserAuthenticationController";
+import { Authentication } from "./Authentication";
+import { AuthenticationController } from "./AuthenticationController";
 
 const userRepositoryImplementation = new DataBaseImplementation();
 const authenticationImplementation = new AuthenticationImplentation();
