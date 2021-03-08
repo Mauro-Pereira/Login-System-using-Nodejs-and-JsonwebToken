@@ -4,7 +4,11 @@ import { createUserController } from './useCases/createUser';
 
 const router = Router();
 
-router.post("/", (req, res) =>{
+router.get("/",(req, res) =>{
+    return res.status(200).send("rodando na rota principal");
+})
+
+router.post("/createUser", (req, res) =>{
     return createUserController.handle(req,res);
 });
 
