@@ -4,9 +4,9 @@ import {Sequelize} from 'sequelize';
 
 export class DataBaseConnectionImplementation implements ICreateDataBase{
 
-    DatabaseConnection(db: Sequelize): any{
+    DatabaseConnection(): any{
        
-        const DataBase = new db.Sequelize('authentication','root','1234',{
+        const DataBase = new Sequelize('authentication','root','1234',{
             host:"localhost",
             dialect:"mysql",
             logging:false,
