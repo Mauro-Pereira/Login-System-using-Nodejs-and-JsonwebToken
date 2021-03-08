@@ -6,7 +6,7 @@ export class DataBaseConnectionImplementation implements ICreateDataBase{
 
     DatabaseConnection(db: Sequelize): any{
        
-        const DB = new db.Sequelize('authentication','root','1234',{
+        const DataBase = new db.Sequelize('authentication','root','1234',{
             host:"localhost",
             dialect:"mysql",
             logging:false,
@@ -17,7 +17,7 @@ export class DataBaseConnectionImplementation implements ICreateDataBase{
             }
         });
 
-        return DB
+        return DataBase;
     }
 
     ForceDataBaseConnection(db:Sequelize): any{
