@@ -20,7 +20,7 @@ export class DataBaseConnectionImplementation implements ICreateDataBase{
         return DataBase;
     }
 
-    ForceDataBaseConnection(db:Sequelize): any{
+    ForceDataBaseConnection(db:any): any{
         return db.sync({force:true}).then(() => console.log("DataBase was created"));
     }
 
