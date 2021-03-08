@@ -1,6 +1,6 @@
 
 export interface ICreateDataBase{
-    DatabaseConnection(db:any): any;
+    DatabaseConnection(): any;
 
     ForceDataBaseConnection(db:any):any;
 }
