@@ -1,15 +1,15 @@
-import {DataTypes} from 'sequelize/types';
+import {DataTypes} from 'sequelize';
 import { ICreateTable } from './interfaces/ICreateTable';
-import {DataBaseConnectionImplementation} from './DataBaseConnectionImplementation'
+import { UserModelSequelize } from './Model/UserModelSequelize';
+
 
 
 
 export class CreateUserTable implements ICreateTable{
 
-    
-    createTable(model: any): any{
-
-        model.init(
+    createTable(model:any): any{
+        
+        UserModelSequelize.init(
             {
                 id:{
                     type: DataTypes.STRING,
@@ -32,11 +32,13 @@ export class CreateUserTable implements ICreateTable{
             },
             {
                 tableName: "Users",
-                sequelize: DataBaseConnectionImplementation
+                sequelize: model
             }
         );
-        
+
         model.sync({force:true}).then(() => console.log("User table was created"));
+        
+       
     }
 }
 
