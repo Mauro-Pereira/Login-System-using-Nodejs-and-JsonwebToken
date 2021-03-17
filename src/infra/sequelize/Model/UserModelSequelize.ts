@@ -1,5 +1,5 @@
-import {DataTypes,Model} from 'sequelize';
-import {DB} from './../DB';
+import {Model} from 'sequelize';
+//import {DB} from './../DB';
 
 export class UserModelSequelize extends Model{
     public id: string;
@@ -11,7 +11,7 @@ export class UserModelSequelize extends Model{
 
 };
 
-
+/*
 UserModelSequelize.init(
     {
         id:{
@@ -37,6 +37,6 @@ UserModelSequelize.init(
         tableName: "Users",
         sequelize: DB
     }
-);
+);*/
 
-UserModelSequelize.sync({force:true}).then(() => console.log("User table was created"));
+//UserModelSequelize.sync({force:true}).then(() => console.log("User table was created"));
