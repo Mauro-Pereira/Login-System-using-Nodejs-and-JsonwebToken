@@ -17,9 +17,10 @@ export class DataBaseConnectionImplementation implements ICreateDataBase{
             }
         });
 
-        DataBase.sync({force:true}).then(() => console.log("DataBase was created"));
+        
+        return DataBase;
 
     }
 
-
 }
+
