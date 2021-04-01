@@ -13,10 +13,12 @@ export class UserAuthenticationController{
 
             try{
                 await this.userAuthentication.execute({email:email,password:password});
-                return response.status(200).send();
+                return response.status(200).json("logged with successfull");
 
-            } catch(err){
-                return response.status(400).json({err});
+            } catch(error){
+            
+                return response.status(400).json({error: error.message});
+                
             }
     }
 }

@@ -1,8 +1,9 @@
-import jwt from 'jsonwebtoken';
+import jwt = require("jsonwebtoken")
 import {Request, Response, NextFunction} from 'express';
 require('dotenv').config();
 
-export function NormalizeJWT(req: Request, res:Response): any{
+export function NormalizeJWT(req: Request, res:Response, next: NextFunction): any{
+    
     let tokenAuth =  req.headers.authorization;
 
     if (!tokenAuth) 
@@ -17,6 +18,7 @@ export function NormalizeJWT(req: Request, res:Response): any{
 
     if(!/^Bearer$/i.test(schema)) 
     return res.status(401).send({error:'Token malformatted'});
+
 
     return token;
 }
@@ -33,7 +35,7 @@ declare global{
 
 export function verifyJWT(req: Request, res: Response, next: NextFunction): any{
 
-    jwt.verify(NormalizeJWT(req, res), process.env.SECRET,(err, decoded) => {
+    jwt.verify(NormalizeJWT(req, res,next), process.env.SECRET,(err, decoded) => {
         if (err) return res.status(500).send({ auth: false, message: 'Failed to authenticate token.' });
         
         // se tudo estiver ok, salva no request para uso posterior
@@ -41,4 +43,4 @@ export function verifyJWT(req: Request, res: Response, next: NextFunction): any{
         req.userId = decoded.id;
         return next();
       });
-}
+} 

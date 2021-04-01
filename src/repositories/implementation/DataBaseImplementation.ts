@@ -5,20 +5,35 @@ import { IUseRepository } from "../IUseRepository";
 
 export class DataBaseImplementation implements IUseRepository{
 
-    async findByEmail(email:string): Promise<UserModelSequelize>{
+  async findByEmail(email:string): Promise<UserModelSequelize>{
 
+      
       try{
 
-       let user = await UserModelSequelize.findOne({where:{email:email}});
-       return user;
+      return await UserModelSequelize.findOne({where:{email:email}});
 
       } catch(error){
-          console.log("Error " + error)
+          console.log("Error findByEmail " + error)
       }
+
  
     }
 
+    async findByEmailAndPassword(email:any,password:any): Promise<UserModelSequelize>{
+      try{
+
+        let user = await UserModelSequelize.findOne({where:{email:email,password:password}});
+        return user;
+
+      }catch(error){
+
+        console.log("Error " + error);
+
+      }
+    }
+
     async findByPassword(password: string): Promise<UserModelSequelize>{
+      
           try{
 
             let user = await UserModelSequelize.findOne({where:{password:password}});
@@ -27,17 +42,29 @@ export class DataBaseImplementation implements IUseRepository{
           }catch(error){
             console.log("Error " + error);
           }
+
+
     }
 
-    async save(user: User): Promise<void>{
+   async save(user: User): Promise<void>{
+
+    console.log(user)
+      
       try{
 
-        await UserModelSequelize.create(user);
+       await UserModelSequelize.create({
+         id:user.getId(),
+         name:user.getName(),
+         email:user.getEmail(),
+         password:user.getPassword()
+       });
         response.status(200).json("User create with successfull")
 
       }catch(error){
-        console.log("Error " + error);
+        console.log("Error Save method " + error);
       }
+
+
     }
 }
 

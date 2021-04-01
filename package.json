@@ -6,6 +6,8 @@
   "author": "Mauro Pereira <mauropereira1096@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "start_DB": "tsnd --transpile-only --respawn --ignore-watch node_modules src/infra/sequelize/DataBase.ts",
+    "start_Table": "tsnd --transpile-only --respawn --ignore-watch node_modules src/infra/sequelize/Model/UserModelSequelize.ts",
     "start": "tsnd --transpile-only --respawn --ignore-watch node_modules src/server.ts"
   },
   "dependencies": {

@@ -1,6 +1,6 @@
 
-const jwt = require('jsonwebtoken')
-const auth = require('../config/auth.json')
+const jwt = require('jsonwebtoken');
+const auth = require('../config/auth.json');
 
 module.exports = function verifyJWT(req, res, next){
   
