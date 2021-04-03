@@ -15,7 +15,7 @@ export class UserAuthenticationController{
                 await this.userAuthentication.execute({email:email,password:password},response,request);
                 return response.status(200).json("logged with successfull");
 
-            } catch(error){
+            }catch(error){
             
                 return response.status(400).json({error: error.message});
                 
