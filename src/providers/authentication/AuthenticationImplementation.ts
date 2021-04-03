@@ -26,7 +26,5 @@ export class AuthenticationImplentation implements IAuthentication{
 
        await response.send({user,token:this.GenerateToken({id:id})});
         
-        console.log(request.headers)
-       
     }
 }
