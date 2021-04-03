@@ -1,19 +1,17 @@
 import { IAuthentication } from "./IAuthentication";
 import jwt = require("jsonwebtoken")
 require('dotenv').config()
+import {Request, Response} from 'express'
 
-import {Response} from 'express'
 
-let res: Response;
 
-res.send("teste")
 
 
 
 
 export class AuthenticationImplentation implements IAuthentication{
 
-    
+
 
     GenerateToken(params:{}): any{
 
@@ -21,14 +19,14 @@ export class AuthenticationImplentation implements IAuthentication{
     }
 
 
-     userAuthentication(user:any): any{
 
-
-       // res.send("aló")
+     async userAuthentication(user:any,response:Response,request:Request): Promise<any>{
+       
         const id = user.id
-        //res.send({user,token:this.GenerateToken({id:id})});
+
+       await response.send({user,token:this.GenerateToken({id:id})});
         
-           // console.log(request.headers)
+        console.log(request.headers)
        
     }
 }
