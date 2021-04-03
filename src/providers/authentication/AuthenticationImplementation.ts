@@ -20,11 +20,19 @@ export class AuthenticationImplentation implements IAuthentication{
 
 
 
-     async userAuthentication(user:any,response:Response,request:Request): Promise<any>{
+  async userAuthentication(user:any,response:Response,request:Request): Promise<any>{
        
+       try{
+
         const id = user.id
 
-       await response.send({user,token:this.GenerateToken({id:id})});
+        return response.send({user,token:this.GenerateToken({id:id})});
+
+       }catch(err){
+
+        console.log(err);
+
+       }
         
     }
 }
