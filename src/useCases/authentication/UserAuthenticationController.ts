@@ -12,7 +12,7 @@ export class UserAuthenticationController{
             const {email,password} = request.body;
 
             try{
-                await this.userAuthentication.execute({email:email,password:password});
+                await this.userAuthentication.execute({email:email,password:password},response,request);
                 return response.status(200).json("logged with successfull");
 
             } catch(error){
