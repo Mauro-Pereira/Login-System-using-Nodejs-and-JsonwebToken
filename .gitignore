@@ -3,3 +3,5 @@
 /gitignore
 
 /.env
+
+/yarn-error.log
